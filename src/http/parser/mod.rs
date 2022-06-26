@@ -1,2 +1,2 @@
 mod req;
-pub use req::parse_req;
+pub(crate) use req::parse_req;
