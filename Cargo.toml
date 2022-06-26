@@ -7,7 +7,7 @@ edition = "2021"
 
 [dependencies]
 http = "0.2.8"
+tap = "1.0.1"
+thiserror = "1.0.31"
 
 [features]
-default = ["std"]
-std = []
