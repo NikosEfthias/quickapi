@@ -4,7 +4,8 @@ version = "0.0.0"
 edition = "2021"
 author = "nikos efthias<nikos@mugsoft.io"
 repository = "https://github.com/NikosEfthias/quickapi"
-descroption = "A router designed with minimal dependencies and minimal build time in mind"
+description = "A router designed with minimal dependencies and minimal build time in mind"
+license = "LGPL-2.1"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
