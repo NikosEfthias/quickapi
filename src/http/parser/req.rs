@@ -41,8 +41,20 @@ fn parse_init_line(line: &str) -> crate::Result<http::request::Builder>
 //{{{
 {
 	let mut parts = line.split(' ');
+	let method = parts.next().ok_or(Error::InvalidRequest)?;
 	http::request::Builder::new()
-		.method(parts.next().ok_or(Error::InvalidRequest)?)
+		.method(match method.to_uppercase().as_str() {
+			"GET" => http::Method::GET,
+			"POST" => http::Method::POST,
+			"PUT" => http::Method::PUT,
+			"DELETE" => http::Method::DELETE,
+			"HEAD" => http::Method::HEAD,
+			"OPTIONS" => http::Method::OPTIONS,
+			"CONNECT" => http::Method::CONNECT,
+			"TRACE" => http::Method::TRACE,
+			"PATCH" => http::Method::PATCH,
+			_ => return Err(Error::InvalidMethod(method.to_string())),
+		})
 		.uri(
 			parts
 				.next()

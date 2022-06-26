@@ -1,7 +1,6 @@
 pub(crate) mod parser;
-use std::{fmt::Debug, io::Read};
-
 pub use http::*;
+use std::{fmt::Debug, io::Read};
 pub struct Body<'a>(Box<dyn Read + 'a>);
 impl Debug for Body<'_>
 {
